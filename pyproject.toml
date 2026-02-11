@@ -1,0 +1,24 @@
+[project]
+name = "anmeldung-mcp-server"
+version = "0.1.0"
+description = "Production-Grade Berlin Services MCP Server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastmcp>=2.14.4",
+    "httpx>=0.28.1",
+    "pydantic>=2.12.5",
+    "pymupdf>=1.26.7",
+    "pypdf>=6.6.2",
+    "requests>=2.32.5",
+]
+
+[project.scripts]
+berlin-mcp = "berlin_mcp.main:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/berlin_mcp"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

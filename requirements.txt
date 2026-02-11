@@ -1,0 +1,6 @@
+fastmcp>=2.14.4
+httpx>=0.28.1
+pydantic>=2.12.5
+pymupdf>=1.26.7
+pypdf>=6.6.2
+requests>=2.32.5

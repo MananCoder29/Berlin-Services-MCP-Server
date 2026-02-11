@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+build/
+dist/
+*.egg-info/
+
+# MCP Server Specific
+.cache/
+.remote_cache/
+filled_forms/
+recent_fills_v2.json
+
+# Environment
+.env
+.python-version
+uv.lock

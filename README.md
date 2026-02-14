@@ -8,6 +8,27 @@ A production-grade Model Context Protocol (MCP) server for Berlin city services 
 - **Resilient Caching**: Optimized for performance with intelligent fallback for offline use.
 - **Remote Sync**: Supports both local and remote (Cloud) deployments.
 
+## Technical Architecture
+
+### 1. Data Sourcing
+The server pulls data from the official **Berlin City Services API**:
+`https://service.berlin.de/export/dienstleistungen/json/`
+
+- **Live Fetching**: Tools like `search_services` and `get_service_details` hit the live API.
+- **Resilient Caching**: Implements a dual-layer cache (Memory + Disk) to ensure high performance and offline reliability.
+- **Smart Fallback**: If the API is down and no cache exists, it falls back to a minimal set of core services to remain functional.
+
+### 2. Advanced PDF Processing
+Powered by `PyMuPDF` (`fitz`), the server provides sophisticated document handling:
+- **Field Extraction**: Automatically detects fillable fields in PDF forms hosted on the city's servers.
+- **Intelligent Filling**: Maps user data to PDF fields using smart matching and common translation fragments.
+- **Loop Protection**: Includes a `LoopProtector` to prevent redundant tool executions and LLM loops.
+- **Visual Previews**: Can render specific pages of a PDF to JPEG for a quick in-chat snapshot (useful for verification without leaving the chat).
+
+### 3. Deployment Modes
+- **Local Mode**: Optimized for use with Claude Desktop. In this mode, `open_file_locally` can be used to open filled PDFs directly with your system's default viewer.
+- **Remote/Cloud Mode**: Designed for deployment on platforms like Fly.io or Railway. Replaces local file opening with secure synchronization and in-chat previews.
+
 ## Prerequisites
 - Python 3.11 or higher
 - `uv` (recommended) or `pip`

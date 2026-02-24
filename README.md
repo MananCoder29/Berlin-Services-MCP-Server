@@ -11,8 +11,7 @@ A production-grade Model Context Protocol (MCP) server for Berlin city services 
 ## Technical Architecture
 
 ### 1. Data Sourcing
-The server pulls data from the official **Berlin City Services API**:
-`https://service.berlin.de/export/dienstleistungen/json/`
+The server pulls data from the official **Berlin City Services API**
 
 - **Live Fetching**: Tools like `search_services` and `get_service_details` hit the live API.
 - **Resilient Caching**: Implements a dual-layer cache (Memory + Disk) to ensure high performance and offline reliability.
@@ -74,7 +73,7 @@ File location: `~/Library/Application Support/Claude/claude_desktop_config.json`
       "args": [
         "run",
         "--directory",
-        "/Users/mananshah/Desktop/Berlin-Services-MCP-Server",
+        "/Users/YourUser/Desktop/Berlin-Services-MCP-Server",
         "python",
         "-m",
         "berlin_mcp.main"
